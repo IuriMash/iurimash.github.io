@@ -1,28 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const CheckSwitch = document.getElementById('MySwitch');
-    const body = document.body
-    const Theme = localStorage.getItem('theme');
+    const body = document.body;
+    
+    let Theme = localStorage.getItem('theme');
 
     if (Theme === 'dark') {
-        ButtonSwitch.checked = true;
-        UpdateTheme();
+        CheckSwitch.checked = true;
     } else {
-        ButtonSwitch.checked = false;
-        UpdateTheme();
+        CheckSwitch.checked = false;
     }
 
-    CheckSwitch.addEventListener('change', function() {
-        if (this.checked) {
-            localStorage.setItem('theme', 'dark');
-            UpdateTheme();
-        } else {
-            localStorage.setItem('theme', 'light');
-            UpdateTheme();
-        }
-    });
-
-    function UpdateTheme() {
+    function UpdateTheme(theme) {
         body.classList.remove('light', 'dark');
         body.classList.add(theme);
     }
+
+    UpdateTheme(Theme);
+
+    CheckSwitch.addEventListener('change', function() {
+        const theme = this.checked ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        UpdateTheme(theme);
+    });
 });
