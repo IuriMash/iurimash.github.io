@@ -234,3 +234,10 @@ input:checked + .slider:before {
         text-align: center;
     }
 }
+
+@media (max-width: 450px) {
+    .svg-background {
+        width: 80vw;
+        max-width: 250px;
+}
+}
