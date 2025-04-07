@@ -169,6 +169,10 @@ input[type="password"]:focus{
     transition: .4s;
 }
 
+.no-translate {
+    unicode-bidi: isolate;
+  }
+
 .slider:before {
     position: absolute;
     content: "";
